@@ -1,9 +1,19 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 import Nav from './Nav'
 
 const View = () => {
-      var list=[{"_id":"6285a2a31887dc001619415c","courseTitle":"Python Django Internship","courseDescription":"Internship programme","courseDuration":"3 months","courseVenue":"ONLINE","courseDate":"02/01/2023"},{"_id":"6285a2c21887dc001619415d","courseTitle":"MERN Stack","courseDescription":"Internship programme","courseDuration":"6 months","courseVenue":"ONLINE","courseDate":"02/06/2022"}]
-  return (
+      var[list,setlist]=useState([]) 
+      axios.get("https://mylinkurcodesapp.herokuapp.com/getcourses").then(
+            (Response)=>{
+                  console.log(Response.data)
+                  setlist(Response.data)
+
+
+            }
+      )
+      
+      return (
     <div><Nav/>
           
     <table class="table">
@@ -15,7 +25,8 @@ const View = () => {
       <th scope="col">duration</th>
       <th scope="col">course date</th>
       <th scope="col">course venue</th>
-      
+      <th scope="col">dob</th>
+      <th scope="col">email</th>
       
     </tr>
   </thead>
