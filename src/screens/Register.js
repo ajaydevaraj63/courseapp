@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import Nav from './Nav'
 
@@ -8,8 +9,18 @@ const Register = () => {
      var[venue,setven]=useState('')
      var[date,setdate]=useState('')
      const datain=()=>{
-         const data={'courseTitle':title,'courseDecription':desc,'courseDuration':duration,'courseVenue':venue,'courseDate':date,} 
+         const data={'courseTitle':title,'courseDescription':desc,'courseDuration':duration,'courseVenue':venue,'courseDate':date,} 
          console.log(data)
+         axios.post("https://mylinkurcodesapp.herokuapp.com/addcourse",data).then(
+               (Response)=>{
+                     console.log(Response.data)
+                     if(Response.data.status=="success"){
+                           alert("success")
+                     }
+                     else{
+                           alert("fail")
+                     }
+               })
 }
              
      return (

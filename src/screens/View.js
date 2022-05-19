@@ -8,8 +8,6 @@ const View = () => {
             (Response)=>{
                   console.log(Response.data)
                   setlist(Response.data)
-
-
             }
       )
       
@@ -21,8 +19,8 @@ const View = () => {
     <tr>
      
       <th scope="col">title</th>
+      <th scope="col">duration </th>
       <th scope="col">description</th>
-      <th scope="col">duration</th>
       <th scope="col">course date</th>
       <th scope="col">course venue</th>
       <th scope="col">dob</th>
