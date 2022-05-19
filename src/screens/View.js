@@ -3,18 +3,42 @@ import React, { useState } from 'react'
 import Nav from './Nav'
 
 const View = () => {
+      var[loadBody,setBody]=useState(true)
       var[list,setlist]=useState([]) 
       axios.get("https://mylinkurcodesapp.herokuapp.com/getcourses").then(
             (Response)=>{
                   console.log(Response.data)
                   setlist(Response.data)
+                  setBody(false)
             }
       )
       
       return (
     <div><Nav/>
-          
-    <table class="table">
+ {loadBody?  <div> <div class="spinner-grow text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-secondary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-success" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-danger" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-warning" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-info" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-light" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-dark" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div></div>  : <table class="table">
   <thead>
     <tr>
      
@@ -46,7 +70,7 @@ list.map((value,key)=>
 }
    
   </tbody>
-</table>
+</table>}
          </div>
   )
 }
