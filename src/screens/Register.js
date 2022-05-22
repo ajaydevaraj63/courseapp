@@ -15,7 +15,7 @@ const Register = () => {
      return (
   
  
-    <div><Nav/>
+    <div>
           <form>
       
     <div class="container">
